@@ -5,8 +5,8 @@
    Tutorial 10
    Case Problem 3
 
-   Author:  
-   Date:   
+   Author:  Rose A
+   Date:   2-4-20
    
    Filename: ah_report.js
    
@@ -27,8 +27,10 @@
       information for the donor
       
 */
+ var donationTotal = 0;
+ donors.forEach(calcSum());
 
-
+ var summaryTable = "<table> <tr><th>Donors</th><td> " + donors.length + " </td></tr> <tr><th>Total Donations</th><td>$" + donationTotal + "</td></tr> </table>";
 
 
 
