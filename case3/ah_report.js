@@ -28,16 +28,23 @@
       
 */
  var donationTotal = 0;
- donors.forEach(calcSum());
+ donors.forEach(calcSum);
 
- var summaryTable = "<table> <tr><th>Donors</th><td> " + donors.length + " </td></tr> <tr><th>Total Donations</th><td>$" + donationTotal + "</td></tr> </table>";
+ var summaryTable = "<table> <tr><th>Donors</th><td> " + donors.length + " </td></tr> <tr><th>Total Donations</th><td>$" + donationTotal.toLocaleString() + "</td></tr> </table>";
+
+document.getElementById("donationSummary").innerHTML = summaryTable;
+
+console.log(summaryTable);
+console.log(donorTable);
 
 
+var majorDonors = donors.filter(findMajorDonors);
+majorDonors.sort(donorSortDescending);
 
-
-
-
-
+var donorTable = "<table> <caption>Major Donors</caption> <tr> <th>Donations</th><th>Donor ID</th> <th>Date</th><th>Name</th><th>Address</th> <th>Phone</th><th>E-Mail</th> </tr>";
+majorDonors.forEach(writeDonorRow);
+donorTable += "</table>";
+document.getElementById("donorTable").innerHTML = donorTable;
 
 function calcSum(donorAmt) {
    donationTotal += donorAmt[9];
