@@ -23,8 +23,9 @@
    
       
 */
+//initializing
 var reportHTML = "<h1>" + raceTitle + "</h1>";
-
+//make row
 for (var i=0; i<race.length; i++){
    var totalVotes = 0;
    votes[i].forEach(calcSum);
@@ -33,8 +34,10 @@ for (var i=0; i<race.length; i++){
    reportHTML += candidateRows();
    reportHTML += "</table>"
 }
+//display
 document.getElementsByTagName("section")[0].innerHTML = reportHTML
 
+//function to make rows
 function candidateRows(){
    var rowHTML = "";
    for(var j=0; j<3; j++){
@@ -65,7 +68,7 @@ function calcPercent(value, sum) {
    return (100*value/sum);
 }
 
-
+//function to make bars
 function createBar(partyType){
    var barHTML = "";
    if (partyType ==="D"){
